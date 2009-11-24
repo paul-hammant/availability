@@ -1,0 +1,396 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+<title>Recruiting Availability</title>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js" type="text/javascript"></script>-->
+<script type="text/javascript" src="http://AvailabilityDev01.getangular.com/angular-1.0a.js#database=AvailabilityDev01"></script>
+<style type="text/css">
+	@import url(avbapp.css);
+</style>
+</head> 
+<body>
+<h1 class="title"> Recruiting Availability </h1>
+<div ng-entity="week=Week">
+<table id="nav">
+	<tr>
+		<td>
+		    <!-- week.starting="2009-12-02" -->
+		    <input name="week.starting" value="2009-12-09" type="hidden"	/>
+			<span class="thisWeek"><a href="javascript:void(0);">&laquo;</a> <span>{{week.starting}}</span> <a href="#week=2009-12-02">&raquo;</a> </span>
+		</td>
+		<td>
+			<label>All week I will be in or near the <select name="wLocation">
+				<option selected="true"></option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select> office.
+			</label>
+		</td>
+		<td>
+			<a href="javascript:void(0);">Autofill</a> <input type="submit" value="Save">
+		</td>
+	</tr>
+</table>
+<table id="week">
+	<tr class="days">
+		<td>Monday</td>
+		<td>Tuesday</td>
+		<td>Wednesday</td>
+		<td>Thursday</td>
+		<td>Friday</td>
+		<td>Saturday</td>
+		<td>Sunday</td>
+	</tr>
+	<tr class="options">
+		<td>
+			<select name="week.day.mon.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.tue.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.wed.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.thu.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.fri.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.sat.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+		<td>
+			<select name="week.sun.locn">
+				<option selected="true">Select office...</option>
+				<option>Bangalore</option>
+				<option>Beijing</option>
+				<option>Calgary</option>
+				<option>Chennai</option>
+				<option>Chicago</option>
+				<option>Dallas</option>
+				<option>New York</option>
+				<option>London</option>
+				<option>Manchester</option>
+				<option>Melbourne</option>
+				<option>Pune</option>
+				<option>San Francisco</option>
+				<option>Stockholm</option>
+				<option>Sydney</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="any time" name="monx">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="tuex">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="wedx">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="thux">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="frix">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="satx">Any Time</label></td>
+		<td><label><input type="checkbox" value="any time" name="sunx">Any Time</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="1" name="week.day.mon.08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.tue.h08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.wed.h08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.thu.h08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.fri.h08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.sat.h08">08:00 &ndash; 09:00 am</label></td>
+		<td><label><input type="checkbox" value="1" name="week.sun.h08">08:00 &ndash; 09:00 am</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0900-1000" name="mon1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0900-1000" name="tue1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0900-1000" name="wed1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0900-1000" name="thu1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0900-1000" name="fri1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0900-1000" name="sat1">09:00 &ndash; 10:00 am</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0900-1000" name="sun1">09:00 &ndash; 10:00 am</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 1000-1100" name="mon2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 1000-1100" name="tue2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 1000-1100" name="wed2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 1000-1100" name="thu2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 1000-1100" name="fri2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 1000-1100" name="sat2">10:00 &ndash; 11:00 am</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 1000-1100" name="sun2">10:00 &ndash; 11:00 am</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 1100-1200" name="mon3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 1100-1200" name="tue3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 1100-1200" name="wed3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 1100-1200" name="thu3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 1100-1200" name="fri3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 1100-1200" name="sat3">11:00 &ndash; 12:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 1100-1200" name="sun3">11:00 &ndash; 12:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 1200-0100" name="mon4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 1200-0100" name="tue4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 1200-0100" name="wed4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 1200-0100" name="thu4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 1200-0100" name="fri4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 1200-0100" name="sat4">12:00 &ndash; 01:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 1200-0100" name="sun4">12:00 &ndash; 01:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0100-0200" name="mon5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0100-0200" name="tue5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0100-0200" name="wed5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0100-0200" name="thu5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0100-0200" name="fri5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0100-0200" name="sat5">01:00 &ndash; 02:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0100-0200" name="sun5">01:00 &ndash; 02:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0200-0300" name="mon6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0200-0300" name="tue6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0200-0300" name="wed6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0200-0300" name="thu6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0200-0300" name="fri6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0200-0300" name="sat6">02:00 &ndash; 03:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0200-0300" name="sun6">02:00 &ndash; 03:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0300-0400" name="mon7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0300-0400" name="tue7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0300-0400" name="wed7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0300-0400" name="thu7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0300-0400" name="fri7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0300-0400" name="sat7">03:00 &ndash; 04:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0300-0400" name="sun7">03:00 &ndash; 04:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0400-0500" name="mon8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0400-0500" name="tue8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0400-0500" name="wed8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0400-0500" name="thu8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0400-0500" name="fri8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0400-0500" name="sat8">04:00 &ndash; 05:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0400-0500" name="sun8">04:00 &ndash; 05:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0500-0600" name="mon9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0500-0600" name="tue9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0500-0600" name="wed9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0500-0600" name="thu9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0500-0600" name="fri9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0500-0600" name="sat9">05:00 &ndash; 06:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0500-0600" name="sun9">05:00 &ndash; 06:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0600-0700" name="mon10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0600-0700" name="tue10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0600-0700" name="wed10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0600-0700" name="thu10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0600-0700" name="fri10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0600-0700" name="sat10">06:00 &ndash; 07:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0600-0700" name="sun10">06:00 &ndash; 07:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0700-0800" name="mon10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0700-0800" name="tue10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0700-0800" name="wed10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0700-0800" name="thu10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0700-0800" name="fri10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0700-0800" name="sat10">07:00 &ndash; 08:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0700-0800" name="sun10">07:00 &ndash; 08:00 pm</label></td>
+	</tr>
+	<tr>
+		<td><label><input type="checkbox" value="mon 11/09/2009 0800-0900" name="mon10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="tue 11/10/2009 0800-0900" name="tue10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="wed 11/11/2009 0800-0900" name="wed10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="thu 11/12/2009 0800-0900" name="thu10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="fri 11/13/2009 0800-0900" name="fri10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="sat 11/14/2009 0800-0900" name="sat10">08:00 &ndash; 09:00 pm</label></td>
+		<td><label><input type="checkbox" value="sun 11/08/2009 0800-0900" name="sun10">08:00 &ndash; 09:00 pm</label></td>
+	</tr>
+</table>
+<table id="activity">
+	<tr>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="anything" name="monAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="monPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="monInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="monCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="tueAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="tuePhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="tueInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="tueCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="wedAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="wedPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="wedInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="wedCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="thuAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="thuPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="thuInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="thuCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="friAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="friPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="friInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="friCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="satAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="satPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="satInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="satCode">Code Reviews</label>
+			
+		</td>
+		<td>
+			<span>I can help with...</span>
+			<label><input type="checkbox" value="any time" name="sunAll">Anything</label>
+			<label><input type="checkbox" value="any time" name="sunPhone">Phone Interviews</label>
+			<label><input type="checkbox" value="any time" name="sunInPerson">In-Person Interviews</label>
+			<label><input type="checkbox" value="any time" name="sunCode">Code Reviews</label>
+			
+		</td>
+	</tr>
+</table>
+<table id="codeReviewTypes">
+	<tr>
+		<td>
+			<span>I am proficient in...</span>
+			<blockquote>
+				<label><input type="checkbox" value="any time" name="monCode">Java</label>
+				<label><input type="checkbox" value="any time" name="monCode">Python</label>
+				<label><input type="checkbox" value="any time" name="monCode">Ruby</label>
+				<label><input type="checkbox" value="any time" name="monCode">C#</label>
+				<label>Other <input type="text" name="week.otherLanguage" size="8"></label> {{otherLanguage}}
+			</blockquote>
+		</td>
+	</tr>
+</table>
+</div>
+<hr />
+<pre>week = {{week}}</pre>
+</body>
+</html>
