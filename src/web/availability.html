@@ -53,7 +53,7 @@ offices = [
 	<tr>
 		<td>
 			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/></span>  
-            <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = $anchor.ww+1" value="Next"/>
+            <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = 1 + $anchor.ww" value="Next"/>
 		</td>
 		<td>
 			<label>All week I will be in or near the <select name="wLocation">
@@ -93,15 +93,24 @@ offices = [
 <hr/>
 <table id="about_me">
 	<tr>
-        <td valign="top">
+        <th>
             <span><strong>I can help with...</strong></span>
+        </th>
+        <th>
+            <span><strong>I am proficient in...</strong></span>
+        </th>
+        <th>
+            <span><strong>Geographical Data</strong></span>
+        </th>
+    </tr>
+	<tr>
+        <td valign="top">
             <label><input type="checkbox" value="true" name="twer.cando.anything">Anything</label>
             <label><input type="checkbox" value="true" name="twer.cando.phone">Phone Interviews</label>
             <label><input type="checkbox" value="true" name="twer.cando.interview">In-Person Interviews</label>
             <label><input type="checkbox" value="true" name="twer.cando.review">Code Reviews</label>
         </td>
 		<td valign="top">
-			<span><strong>I am proficient in...</strong></span>
             <label><input type="checkbox" value="true" name="twer.language.java">Java</label>
             <label><input type="checkbox" value="true" name="twer.language.python">Python</label>
             <label><input type="checkbox" value="true" name="twer.language.ruby">Ruby</label>
@@ -109,9 +118,8 @@ offices = [
             <label>Other <input type="text" name="twer.language.other" size="8"></label>
         </td>
         <td valign="top">
-            <span><strong>Geographical Locations (city/town)</strong></span>
-            <label>My home<input type="text" value="" name="twer.home_city" size="12"></label>
-            <label>My client<input type="text" value="" name="twer.client_city" size="12"></label>
+            <label>My home<input type="text" value="" name="twer.home_city" size="12"></label> (city/town)
+            <label>My client<input type="text" value="" name="twer.client_city" size="12"></label> (city/town)
         </td>
 	</tr>
 </table>
