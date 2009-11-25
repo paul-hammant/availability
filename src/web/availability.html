@@ -50,7 +50,8 @@ offices = [
 <table id="nav">
 	<tr>
 		<td>
-			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/> <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = $anchor.ww+1" value="Next"/>
+			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/></span>  
+            <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = $anchor.ww+1" value="Next"/>
 		</td>
 		<td>
 			<label>All week I will be in or near the <select name="wLocation">
@@ -60,7 +61,10 @@ offices = [
 			</label>
 		</td>
 		<td>
-			<a href="javascript:void(0);">Autofill</a> <input type="submit" value="Save"/>
+			<a href="javascript:void(0);">Autofill from previous week</a>
+		</td>
+		<td>
+			<input type=button ng-action="week.$save()" value="save"/>
 		</td>
 	</tr>
 </table>
