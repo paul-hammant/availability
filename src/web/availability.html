@@ -46,7 +46,7 @@ offices = [
 </head> 
 <body>
 <h1 class="title"> Recruiting Availability </h1>
-<div ng-entity="week=Week:{days:[{},{},{},{},{},{},{}]}">
+<div ng-entity="week=Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer">
 <table id="nav">
 	<tr>
 		<td>
@@ -108,10 +108,17 @@ offices = [
 				<label>Other <input type="text" name="week.language.other" size="8"></label> {{week.language.other}}
 			</blockquote>
 		</td>
+        <td>
+            <span>My home is in (city/town)</span>
+            <label><input type="text" value="" name="twer.home_city" size="12"></label>
+            <span>My client is in (city/town)</span>
+            <label><input type="text" value="" name="twer.client_city" size="12"></label>
+        </td>
 	</tr>
 </table>
 </div>
 <hr />
 <pre>week = {{week}}</pre>
+<pre>twer = {{twer}}</pre>
 </body>
 </html>
