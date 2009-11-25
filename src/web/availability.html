@@ -46,7 +46,9 @@ offices = [
 </head> 
 <body>
 <h1 class="title"> Recruiting Availability </h1>
-<div ng-init="$anchor.ww = $anchor.ww || 1"  ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)" ng-entity="Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer">
+<div ng-init="$anchor.ww = $anchor.ww || 1; twer = Twer.loadOrCreate('mlong')"
+     ng-entity="Week:{days:[{},{},{},{},{},{},{}]}; twer=Twer"
+     ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)">
 <table id="nav">
 	<tr>
 		<td>
