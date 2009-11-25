@@ -46,7 +46,7 @@ offices = [
 </head> 
 <body>
 <h1 class="title"> Recruiting Availability </h1>
-<div ng-init="$anchor.ww = $anchor.ww || 1"  ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)" ng-entity="Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer" ng-init="twer.$id=mlong">
+<div ng-init="$anchor.ww = $anchor.ww || 1"  ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)" ng-entity="Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer">
 <table id="nav">
 	<tr>
 		<td>
@@ -108,7 +108,7 @@ offices = [
 				<label><input type="checkbox" value="true" name="twer.language.python">Python</label>
 				<label><input type="checkbox" value="true" name="twer.language.ruby">Ruby</label>
 				<label><input type="checkbox" value="true" name="twer.language.csharp">C#</label>
-				<label>Other <input type="text" name="twer.language.other" size="12"></label>
+				<label>Other <input type="text" name="week.language.other" size="8"></label> {{week.language.other}}
 			</blockquote>
 		</td>
         <td>
