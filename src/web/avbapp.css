@@ -1,0 +1,69 @@
+BODY {
+	font-family: sans-serif;
+	background: #fff;
+	color: #000;
+}
+A {
+	color: blue;
+}
+FORM {
+	font-size: 14px;
+}
+LABEL {
+	white-space: nowrap;
+	display: block;
+}
+LABEL INPUT {
+	vertical-align: bottom;
+}
+TABLE#week,
+TABLE#activity {
+	width: 100%;
+	border-collapse: separate;
+	table-layout: fixed;
+}
+TABLE#week TD,
+TABLE#activity TD {
+	overflow: hidden;
+	padding: 0 2px 0 8px;
+	
+}
+TABLE#activity {
+	margin-top: 1em;
+}
+TR.days {
+	text-transform: capitalize;
+	font-size: 18px;
+}
+TR.options SELECT {
+	width: 100%;
+	margin-bottom: 4px;
+}
+TABLE#nav {
+	width: 100%;
+	border-collapse: separate;
+	table-layout: fixed;
+	margin-bottom: 24px;
+	background: #E0ECFF;
+}
+TABLE#nav SPAN.thisWeek {
+	font-size: 20px;
+	display: inline-block;
+	vertical-align: bottom;
+}
+TABLE#nav SPAN.thisWeek A,
+TABLE#nav SPAN.thisWeek A:link {
+	text-decoration: none;
+	font-size: 24px;
+	display: inline-block;
+	padding: 0 6px;
+}
+TABLE#activity BLOCKQUOTE {
+	margin: 0 0 0 1em;
+}
+TABLE#codeReviewTypes {
+	margin-top: 1em;
+}
+TABLE#codeReviewTypes LABEL {
+	display: inline-block !important;
+}
