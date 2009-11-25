@@ -46,13 +46,11 @@ offices = [
 </head> 
 <body>
 <h1 class="title"> Recruiting Availability </h1>
-<div ng-entity="week=Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer">
+<div ng-init="$anchor.ww = $anchor.ww || 1"  ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)" ng-entity="Week:{days:[{},{},{},{},{},{},{}]}" ng-entity="twer=Twer">
 <table id="nav">
 	<tr>
 		<td>
-		    <!-- week.starting="2009-12-02" -->
-		    <input name="week.starting" value="2009-12-09" type="hidden"	/>
-			<span class="thisWeek"><input type="button" value="Prev"/> <span>{{week.starting}}</span> <input type="button" value="Next"/>
+			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/> <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = $anchor.ww+1" value="Next"/>
 		</td>
 		<td>
 			<label>All week I will be in or near the <select name="wLocation">
@@ -62,7 +60,7 @@ offices = [
 			</label>
 		</td>
 		<td>
-			<a href="javascript:void(0);">Autofill</a> <input type="submit" value="Save">
+			<a href="javascript:void(0);">Autofill</a> <input type=button ng-action="week.$save()" value="save"/>
 		</td>
 	</tr>
 </table>
