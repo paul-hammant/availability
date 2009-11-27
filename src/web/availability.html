@@ -52,11 +52,11 @@ offices = [
 <table id="nav">
 	<tr>
 		<td>
-			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/></span>  
-            <span>{{week.starting}}</span> <input type=button ng-action="$anchor.ww = 1 + $anchor.ww" value="Next"/>
+			<span class="thisWeek"><input type=button ng-action="$anchor.ww = $anchor.ww - 1" value="Prev"/></span>
+            <span>CURRENT-DATE-TODO{{week.starting}}</span> <input type=button ng-action="$anchor.ww = 1 + $anchor.ww" value="Next"/>
 		</td>
 		<td>
-			<label>All week I will be in or near the <select name="wLocation">
+			<label>This week I will be in or near the <select name="wLocation">
 				<option value="">--Select--</option>
     		<option ng-repeat="city in $window.offices" value="{{city.value}}">{{city.name}}</option>
 			</select> office.
@@ -83,6 +83,19 @@ offices = [
       </select>
 		</td>
 	</tr>
+	<tr >
+        <td height="50" colspan="7">
+            <strong>Out of office or not location/time specific...</strong>
+        </td>
+    </tr>
+    <tr>
+		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day.codereview">Code Review</label></td>
+	</tr>
+    <tr>
+        <td height="50" colspan="7">
+            <strong>In an office or time sensitive interviews...</strong>
+        </td>
+    </tr>
 	<tr>
 		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day.any">Any Time</label></td>
 	</tr>
@@ -94,13 +107,22 @@ offices = [
 <table id="about_me">
 	<tr>
         <th>
-            <span><strong>I can help with...</strong></span>
+            <span><strong>I can help with</strong></span>
         </th>
         <th>
-            <span><strong>I am proficient in...</strong></span>
+            <span><strong>Languages I know<br/>to some degree</strong></span>
         </th>
         <th>
-            <span><strong>Geographical Data</strong></span>
+            <span><strong>Timezone</strong></span>
+        </th>
+        <th>
+            <span><strong>Roles that I can<br/>Interview for</strong></span>
+        </th>
+        <th>
+            <span><strong>Max number of<br/>interviews a week</strong></span>
+        </th>
+        <th>
+            <span><strong>How to book me<br/>for an interview</strong></span>
         </th>
     </tr>
 	<tr>
@@ -118,8 +140,68 @@ offices = [
             <label>Other <input type="text" name="twer.language.other" size="8"></label>
         </td>
         <td valign="top">
-            <label>My home<input type="text" value="" name="twer.home_city" size="12"></label> (city/town)
-            <label>My client<input type="text" value="" name="twer.client_city" size="12"></label> (city/town)
+            <select name="twer.timezone">
+                <option value="-8">US Pacific</option>
+                <option value="-6">US Central</option>
+                <option value="-5">US Eastern</option>
+                <option value="0">UK/Ireland</option>
+                <option value="+1">Central European</option>
+                <option value="+5.5">India</option>
+                <option value="+10">Australia</option>
+            </select>
+        </td>
+        <td valign="top">
+            <select name="twer.roles" multiple size="7">
+                <option value="UX">User Experience</option>
+                <option value="Dev">Developer</option>
+                <option value="PM">Project Manager</option>
+                <option value="CP">Client Principal</option>
+                <option value="BD">Business Developer</option>
+                <option value="IM">Iteration Manager</option>
+                <option value="BA">Business Analyst</option>
+            </select>
+        </td>
+        <td valign="top">
+            <span>Phone interviews</span>
+            <select name="twer.limits.phone">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br/>
+            <span>Office interviews</span>
+            <select name="twer.limits.office">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+            <br/>
+            <span>Code reviews</span>
+            <select name="twer.limits.office">
+                <option value="1">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </td>
+        <td valign="top">
+            <select name="twer.contact" multiple size="4">
+                <option value="email">email</option>
+                <option value="GChat">Gmail Chat</option>
+                <option value="Y!">Yahoo Messenger</option>
+                <option value="cell">Cell Phone</option>
+            </select>
         </td>
 	</tr>
 </table>
