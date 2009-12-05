@@ -35,7 +35,7 @@
         <li ng-repeat="week in weeks.$filter({:$.days[day_offset].codereview &amp;&amp; twers.$findById($.twer).languages.$include(knows_language) }) ">
 	        <div ng-eval="twer=twers.$findById(week.twer)">
 		        <a href="http://gab.thoughtworks.com/user/{{week.twer}}">{{week.twer}}</a>  
-		        <span ng-style="{display:none}|if:twer.contact.$include('email')">Likes to be contacted by <a href="mailto:{{week.twer}}@thoughtworks.com">email</a></span>
+		        <span ng-show="twer.contact.$include('email')">Likes to be contacted by <a href="mailto:{{week.twer}}@thoughtworks.com">email</a></span>
 		    </div>
         </li>
     </ul>
