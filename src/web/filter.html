@@ -6,11 +6,19 @@
             src="http://AvailabilityDev01.getangular.com/angular-1.0a.js#database=AvailabilityDev01"></script>
 </head>
 <body>
-<div ng-entity="Week; Twer" ng-init="weeks=[]">
-    <label>Find: ThoughtWorker<input name="twer_id"></label>
-    <input type="button" value="load" ng-action="weeks=Week.query('twer', twer_id); twer=Twer.loadOrCreate(twer_id)"/>
+<div ng-entity="Week; Twer" ng-init="weeks=[];twers=[]">
+    <label>Code-review Find: Week</label>
+    <input name="$anchor.week_to_find">
+    <label>day num offset</label>
+    <input name="day_offset">
+    <label>language</label>
+    <input name="knows_language">
+    <input type="button" value="load" ng-action="weeks=Week.query('ww', $anchor.week_to_find, {:$.$each({:twers.push($.twer)}) })"/>
+{{twers}}
+    <!-- twer=Twer.loadOrCreate(twer_id) -->
     <ul>
-        <li ng-repeat="week in weeks.$filter(filterText)">
+        <li ng-repeat="week in weeks.$filter({:$.days[day_offset].codereview})">
+	    <div ng-init="twer=Twer.loadOrCreate(week.twer)">
             {{week}} <br/><br/><br/> {{twer}}
         </li>
     </ul>
