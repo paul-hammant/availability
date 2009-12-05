@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Filter</title>
+    <title>Availability: Find ThoughtWorkers for Code reviews</title>
     <script type="text/javascript"
             src="http://AvailabilityDev01.getangular.com/angular-1.0a.js#database=AvailabilityDev01"></script>
 </head>
@@ -9,18 +9,33 @@
 <div ng-entity="Week; Twer" ng-init="weeks=[]">
     <label>Code-review Find: Week</label>
     <input name="$anchor.week_to_find">
+    <br/>
     <label>day num offset</label>
-    <input name="day_offset">
+    <input name="day_offset"> monday = 0, tuesday =1 ...
+    <br/>
     <label>language</label>
-    <input name="knows_language">
+    <select name="knows_language">
+        <option value="java">Java</option>
+        <option value="ruby">Ruby</option>
+        <option value="csharp">C#</option>
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+        <option value="cpp">C++</option>
+        <option value="scala">Scala</option>
+        <option value="clojure">Clojure</option>
+        <option value="fsharp">F#</option>
+        <option value="haskall">Haskall</option>
+        <option value="ioke">Ioke</option>
+    </select>
+    <br/>
     <input type="button" value="load" ng-action="weeks=Week.query('ww', $anchor.week_to_find, {:ts=[];$.$each({:ts.push($.twer)}); $root.twers=Twer.loadMany(ts) })"/>
-<!-- {{twers}} -->
-    <!-- twer=Twer.loadOrCreate(twer_id) -->
-XXX:{{twers.$findById(weeks[0].twer)}}
+<!-- debug:{{twers.$findById(weeks[0].twer)}} -->
+    <br/>
     <ul>
         <li ng-repeat="week in weeks.$filter({:$.days[day_offset].codereview &amp;&amp; twers.$findById($.twer).languages.$include(knows_language) }) ">
-	    <div ng-eval="twer=twers[week.twer]">
-            {{week}} <br/><br/><br/> {{twer}}
+	        <div ng-eval="twer=twers.$findById(week.twer)">
+		        <a href="http://gab.thoughtworks.com/user/{{week.twer}}">{{week.twer}}</a>  Likes to be contacted by {{twer.contact}}
+		    </div>
         </li>
     </ul>
 </div>
