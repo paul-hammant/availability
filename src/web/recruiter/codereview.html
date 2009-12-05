@@ -28,13 +28,14 @@
         <option value="ioke">Ioke</option>
     </select>
     <br/>
-    <input type="button" value="load" ng-action="weeks=Week.query('ww', $anchor.week_to_find, {:ts=[];$.$each({:ts.push($.twer)}); $root.twers=Twer.loadMany(ts) })"/>
+    <input type="button" value="find ThoughtWorkers" ng-action="weeks=Week.query('ww', $anchor.week_to_find, {:ts=[];$.$each({:ts.push($.twer)}); $root.twers=Twer.loadMany(ts) })"/>
 <!-- debug:{{twers.$findById(weeks[0].twer)}} -->
     <br/>
     <ul>
         <li ng-repeat="week in weeks.$filter({:$.days[day_offset].codereview &amp;&amp; twers.$findById($.twer).languages.$include(knows_language) }) ">
 	        <div ng-eval="twer=twers.$findById(week.twer)">
-		        <a href="http://gab.thoughtworks.com/user/{{week.twer}}">{{week.twer}}</a>  Likes to be contacted by {{twer.contact}}
+		        <a href="http://gab.thoughtworks.com/user/{{week.twer}}">{{week.twer}}</a>  
+		        <span ng-style="{display:none}|if:twer.contact.$include('email')">Likes to be contacted by <a href="mailto:{{week.twer}}@thoughtworks.com">email</a></span>
 		    </div>
         </li>
     </ul>
