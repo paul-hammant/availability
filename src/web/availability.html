@@ -39,6 +39,9 @@ offices = [
   {value:"STK", name:"Stockholm"},
   {value:"SYD", name:"Sydney"},
 ];
+function makeWeekKey(user, ww) {
+	return user + "-" + ww;
+}
 </script>
 <style type="text/css">
 	@import url(avbapp.css);
@@ -48,7 +51,9 @@ offices = [
 <h1 class="title"> Recruiting Availability </h1>
 <div ng-init="$anchor.ww = $anchor.ww || 1; twer = Twer.loadOrCreate('mlong')"
      ng-entity="Week:{days:[{},{},{},{},{},{},{}]}; twer=Twer"
-     ng-watch="$anchor.ww: week = Week.loadOrCreate($anchor.ww)">
+     ng-auth="eager"
+     ng-watch="$anchor.ww:{week = Week.loadOrCreate($window.makeWeekKey($users.current.email, $anchor.ww));}; 
+               $users.current.email:{week = Week.loadOrCreate($window.makeWeekKey($users.current.email, $anchor.ww));}">
 <table id="nav">
 	<tr>
 		<td>
@@ -78,7 +83,7 @@ offices = [
 	<tr class="options">
 		<td ng-repeat="day in week.days">
 			<select name="wLocation">
-        <option value="">--Select--</option>
+        <option value="">--Select Office--</option>
         <option ng-repeat="city in $window.offices" value="{{city.value}}">{{city.name}}</option>
       </select>
 		</td>
@@ -217,6 +222,9 @@ offices = [
 <hr />
 <table>
     <tr>
+        <td valign="top">
+            <pre>user = {{$users.current.email}}</pre>
+        </td>
         <td valign="top">
             <pre>twer = {{twer}}</pre>
         </td>
