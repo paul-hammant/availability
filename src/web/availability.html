@@ -42,6 +42,9 @@ offices = [
 function makeWeekKey(user, ww) {
 	return user + "-" + ww;
 }
+function selectAll(day, val) {
+	_.each(day, function($, hr){day[hr]=val;});
+}
 </script>
 <style type="text/css">
 	@import url(avbapp.css);
@@ -50,7 +53,7 @@ function makeWeekKey(user, ww) {
 <body>
 <h1 class="title"> Recruiting Availability </h1>
 <div ng-init="$anchor.ww = $anchor.ww || 1; twer = Twer.loadOrCreate('mlong')"
-     ng-entity="Week:{days:[{},{},{},{},{},{},{}]}; twer=Twer"
+     ng-entity="Week:{days:[{hour:{}},{hour:{}},{hour:{}},{hour:{}},{hour:{}},{hour:{}},{hour:{}}]}; twer=Twer"
      ng-auth="eager"
      ng-watch="$anchor.ww:{week = Week.loadOrCreate($window.makeWeekKey($users.current.email, $anchor.ww));}; 
                $users.current.email:{week = Week.loadOrCreate($window.makeWeekKey($users.current.email, $anchor.ww));}">
@@ -102,10 +105,10 @@ function makeWeekKey(user, ww) {
         </td>
     </tr>
 	<tr>
-		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day.any">Any Time</label></td>
+		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="allday" ng-action="day.hour.$each({($,h):day.hour[h]=allday})">Any Time</label></td>
 	</tr>
 	<tr ng-repeat="hour in $window.hours">
-		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day[hour.value]">{{hour.label}}</label></td>
+		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day.hour[hour.value]">{{hour.label}}</label></td>
 	</tr>
 </table>
 <hr/>
