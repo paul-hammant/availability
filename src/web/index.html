@@ -91,19 +91,9 @@ function selectAll(day, val) {
       </select>
 		</td>
 	</tr>
-	<tr >
-        <td height="50" colspan="7">
-            <strong>Out of office or not location/time specific...</strong>
-        </td>
-    </tr>
     <tr>
 		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="day.codereview">Code Review</label></td>
 	</tr>
-    <tr>
-        <td height="50" colspan="7">
-            <strong>In an office or time sensitive interviews...</strong>
-        </td>
-    </tr>
 	<tr>
 		<td ng-repeat="day in week.days"><label><input type="checkbox" value="true" name="allday" ng-action="day.hour.$each({($,h):day.hour[h]=allday})">Any Time</label></td>
 	</tr>
