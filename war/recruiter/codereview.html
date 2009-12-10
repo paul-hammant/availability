@@ -6,12 +6,22 @@
             src="http://AvailabilityDev01.getangular.com/angular-1.0a.js#database=AvailabilityDev01"></script>
 </head>
 <body>
-<div ng-entity="Week; Twer" ng-init="weeks=[]">
+<div ng-entity="Week; Twer" 
+     ng-init="weeks=[]; WeekWithTwer=$datastore.join({week:{join:Week},tw:{join:Twer, on:'week.twer'}})">
+    <div>[ <a href="../index.html">Enter</a> ]</div>
     <label>Code-review Find: Week</label>
     <input name="$anchor.week_to_find">
     <br/>
     <label>day num offset</label>
-    <input name="day_offset"> monday = 0, tuesday =1 ...
+    <select name="day_offset">
+        <option value="0">Monday</option>
+        <option value="1">Tuesday</option>
+        <option value="2">Wednesday</option>
+        <option value="3">Thursday</option>
+        <option value="4">Friday</option>
+        <option value="5">Saturday</option>
+        <option value="6">Sunday</option>
+    </select>
     <br/>
     <label>language</label>
     <select name="knows_language">
@@ -28,17 +38,20 @@
         <option value="ioke">Ioke</option>
     </select>
     <br/>
-    <input type="button" value="find ThoughtWorkers" ng-action="weeks=Week.query('ww', $anchor.week_to_find, {:ts=[];$.$each({:ts.push($.twer)}); $root.twers=Twer.loadMany(ts) })"/>
+    <input type="button" value="Find ThoughtWorkers" 
+           ng-action="weeksWithTwr=WeekWithTwer.query('week.ww', $anchor.week_to_find)"/>
 <!-- debug:{{twers.$findById(weeks[0].twer)}} -->
     <br/>
     <ul>
-        <li ng-repeat="week in weeks.$filter({:$.days[day_offset].codereview &amp;&amp; twers.$findById($.twer).languages.$include(knows_language) }) ">
-	        <div ng-eval="twer=twers.$findById(week.twer)">
-		        <a href="http://gab.thoughtworks.com/user/{{week.twer}}">{{week.twer}}</a>  
-		        <span ng-show="twer.contact.$include('email')">Likes to be contacted by <a href="mailto:{{week.twer}}@thoughtworks.com">email</a></span>
-		    </div>
+        <li ng-repeat="ww in weeksWithTwr.$filter({:$.week.days[day_offset].codereview &amp;&amp; $.tw.languages.$include(knows_language) }) ">
+	        <div>
+		        <a href="http://gab.thoughtworks.com/user/{{ww.week.twer}}">{{ww.week.twer}}</a>  
+		        <span ng-show="ww.twer.contact.$include('email')">Likes to be contacted by <a href="mailto:{{ww.week.twer}}@thoughtworks.com">email</a></span>
+  		    </div>
         </li>
     </ul>
 </div>
+  <hr/>
+  <pre>weeksWithTwr={{weeksWithTwr}}</pre>
 </body>
 </html>
