@@ -7,7 +7,7 @@
 </head>
 <body>
 <div ng-entity="Week; Twer" 
-     ng-init="weeks=[]; WeekWithTwer=$datastore.join({week:{join:Week},tw:{join:Twer, on:'week.twer'}})">
+     ng-init="WeekWithTwer=$datastore.join({week:{join:Week},tw:{join:Twer, on:'week.twer'}})">
     <div>[ <a href="../index.html">Enter</a> ]</div>
     <label>Code-review Find: Week</label>
     <input name="$anchor.week_to_find">
